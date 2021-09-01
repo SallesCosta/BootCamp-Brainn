@@ -1,25 +1,26 @@
-function h1({ children }) {
-    return <h1>{ children }</h1>
+
+function H1({ text }) {
+    return <h1>{ text }</h1>
 }
 
-function h2({ children }) {
-    return <h2>{ children }</h2>
+function H2({ text }) {
+    return <h2>{ text }</h2>
 }
 
-function h3({ children }) {
-    return <h3>{ children }</h3>
+function H3({ text }) {
+    return <h3>{ text }</h3>
 }
 
-function h4({ children }) {
-    return <h4>{ children }</h4>
+function H4({ text }) {
+    return <h4>{ text }</h4>
 }
 
-function h5({ children }) {
-    return <h5>{ children }</h5>
+function H5({ text }) {
+    return <h5>{ text }</h5>
 }
 
-function h6({ children }) {
-    return <h6>{ children }</h6>
+function H6({ text }) {
+    return <h6>{ text }</h6>
 }
 
-export {  h1, h2, h3, h4, h5, h6 }
+export {  H1, H2, H3, H4, H5, H6 }
