@@ -1,5 +1,11 @@
+import Sidebar from "./Sidebar";
+
 function Content() {
-    return <section className='content'>Content</section>
+    return <>
+    <Sidebar></Sidebar>
+    <section className='content'>Content</section>
+
+</>
 }
 
 export default Content
