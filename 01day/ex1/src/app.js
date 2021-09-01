@@ -1,7 +1,7 @@
-import Header from './components/Header'
-import Menu from './components/Menu'
-import Content from './components/Content'
-import Footer from './components/Footer'
+import Header from './components/header'
+import Menu from './components/menu'
+import Content from './components/content'
+import Footer from './components/footer'
 
 function App() {
     return (<>

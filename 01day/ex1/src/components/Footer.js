@@ -1,9 +1,9 @@
-// import * as aux from './Aux'
+import * as aux from './aux'
 
 function Footer() {
     return < >
         <footer className='footer'>Footer</footer> 
-        {/* <aux.AMais ></aux.AMais>  */}
+        <aux.Github></aux.Github> 
         </>
 }
 export default Footer

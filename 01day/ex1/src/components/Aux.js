@@ -1,8 +1,11 @@
 // arquivo para exportação de componentes auxiliares
 
-function AMais(){
+function Github(){
     return (<>
-    <p>um componente a mais</p>    
+    <a href="https://github.com/SallesCosta" target="_blank" rel='noreferrer' className="git">
+     <span><i class="fa fa-github" aria-hidden="true"></i> Github</span></a>
+     <p>uma estrelinha pra um dev que está começando???</p>
+     <p>valeu!!!</p>`  
     </>)
 }
 
@@ -14,4 +17,4 @@ function outro() {
     </>)
 }
 
-export {AMais, outro}
+export {Github, outro}

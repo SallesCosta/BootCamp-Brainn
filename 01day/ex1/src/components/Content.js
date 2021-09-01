@@ -1,10 +1,9 @@
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar";
 
 function Content() {
     return <>
     <Sidebar></Sidebar>
     <section className='content'>Content</section>
-
 </>
 }
 
