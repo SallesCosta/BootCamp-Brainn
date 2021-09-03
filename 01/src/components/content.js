@@ -2,6 +2,7 @@ import Sidebar from './sidebar'
 import * as aux from './aux'
 import { useState } from 'react'
 
+
 export default function Content() {
 
     const Lista = [
@@ -35,14 +36,24 @@ export default function Content() {
     const [title, setTitle] = useState(Lista[0].title)
     const [content, setContent] = useState(Lista[0].content)
 
+    function postar(novoPostId) {
+        const novoPost = Lista.find((item) => item.id === novoPostId);
+        setTitle(novoPost.title)
+        setContent(novoPost.content)
+    }
+
     return <>
-        <Sidebar lista={Lista} />
+        <Sidebar lista={Lista} postar={postar} />
         <section className='content'>
             <aux.Github_e />
+            <br />
             <aux.Github_b />
+            <br />
+            <div>
+                <p>{title}</p>
+                <p>{content}</p>
+            </div>
         </section>
     </>
-
-
-
 }
+

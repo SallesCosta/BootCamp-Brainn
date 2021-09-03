@@ -1,6 +1,7 @@
 import Btn from "./btn"
 
-function Sidebar( {lista} ) {
+function Sidebar({ lista, postar }) {
+
     return (
         <aside className='sidebar'>
             <Btn kind='primary' children='Primário'></Btn>
@@ -9,13 +10,16 @@ function Sidebar( {lista} ) {
             <ul>
                 {lista.map((item) => (
                     <li key={item.id}>
-                        <a href={item.id}>{item.title}</a>
+                        <a href={item.id} onClick={(event) => {
+                            event.preventDefault()
+                            postar(item.id)}
+                        }>
+                        {item.title}</a>
                     </li>
                 ))}
             </ul>
-        </aside>
+        </aside >
     )
-
 }
 
 export default Sidebar

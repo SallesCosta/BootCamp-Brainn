@@ -2,13 +2,8 @@ import Header from './components/header'
 import Menu from './components/menu'
 import Content from './components/content'
 import Footer from './components/footer'
-import Lista from './components/content'
-import { useState } from 'react'
-
 
 function App() {
-
-
 
     return (<>
         <Header></Header>
