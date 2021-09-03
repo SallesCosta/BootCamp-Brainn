@@ -16,15 +16,3 @@
     }
 
 
-
-
-function Lista() {
-    return<>
-    <ul>
-        {artigos.map((item, id)=>(
-            <li key={ id }><a href={item.content}>{item.title}</a></li>
-        ))
-        }
-    </ul>
-    </>
-}
