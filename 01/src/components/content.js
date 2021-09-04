@@ -1,6 +1,7 @@
 import Sidebar from './sidebar'
 import * as aux from './aux'
 import { useState } from 'react'
+import { P } from './titulos'
 
 
 export default function Content() {
@@ -43,6 +44,7 @@ export default function Content() {
     }
 
     return <>
+
         <Sidebar lista={Lista} postar={postar} />
         <section className='content'>
             <aux.Github_e />
@@ -50,10 +52,8 @@ export default function Content() {
             <aux.Github_b />
             <br />
             <div>
-                <p>{title}</p>
-                <p>{content}</p>
+                <P>{title}</P>
+                <P>{content}</P>
             </div>
-        </section>
-    </>
-}
-
+            </section>
+            </>}

@@ -23,4 +23,9 @@ function H6({ text }) {
     return <h6>{ text }</h6>
 }
 
-export {  H1, H2, H3, H4, H5, H6 }
+function P({ text }) {
+    return <p>{ text }</p>
+}
+
+
+export {  H1, H2, H3, H4, H5, H6, P }
