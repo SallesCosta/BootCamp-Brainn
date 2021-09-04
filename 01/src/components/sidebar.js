@@ -10,11 +10,12 @@ function Sidebar({ lista, postar }) {
             <ul>
                 {lista.map((item) => (
                     <li key={item.id}>
-                        <a href={item.id} onClick={(event) => {
+                        <a href={item.id} className='links_articles' onClick={(event) => {
                             event.preventDefault()
-                            postar(item.id)}
+                            postar(item.id)
+                        }
                         }>
-                        {item.title}</a>
+                            {item.title}</a>
                     </li>
                 ))}
             </ul>

@@ -107,3 +107,15 @@
     transition-duration: 0.4s;
     cursor: pointer;
   }
+
+.links_articles {
+    background-color: #fff;
+    width: 140px;
+    height: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 10px;
+    cursor: pointer;
+}

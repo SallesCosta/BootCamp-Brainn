@@ -1,7 +1,7 @@
 import Sidebar from './sidebar'
 import * as aux from './aux'
 import { useState } from 'react'
-import { P } from './titulos'
+import { H4, P } from './titulos'
 
 
 export default function Content() {
@@ -52,8 +52,10 @@ export default function Content() {
             <aux.Github_b />
             <br />
             <div>
-                <P>{title}</P>
-                <P>{content}</P>
+                <H4 text={title} />
+            <br />
+                <P text={content} />
             </div>
-            </section>
-            </>}
+        </section>
+    </>
+}
