@@ -2,6 +2,7 @@ import Sidebar from './sidebar'
 import * as aux from './aux'
 import { useState } from 'react'
 import { H4, P } from './titulos'
+import FormCar from './formCar'
 
 
 export default function Content() {
@@ -57,6 +58,7 @@ export default function Content() {
                 <br />
                 <P text={content} />
             </div>
+            <FormCar/>
         </section>
     </>
 }
