@@ -43,6 +43,7 @@ export default function Content() {
         setContent(novoPost.content)
     }
 
+
     return <>
 
         <Sidebar lista={Lista} postar={postar} />
@@ -51,9 +52,9 @@ export default function Content() {
             <br />
             <aux.Github_b />
             <br />
-            <div>
+            <div className='card'>
                 <H4 text={title} />
-            <br />
+                <br />
                 <P text={content} />
             </div>
         </section>

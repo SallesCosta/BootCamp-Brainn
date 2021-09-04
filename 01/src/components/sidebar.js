@@ -4,8 +4,8 @@ function Sidebar({ lista, postar }) {
 
     return (
         <aside className='sidebar'>
-            <Btn kind='primary' children='Primário'></Btn>
-            <Btn kind='secondary' children='Secundário'></Btn>
+            <Btn kind='primary' children='Desafios #1 e #2'></Btn>
+            <Btn kind='secondary' children='Desafio #3'></Btn>
             <br />
             <ul>
                 {lista.map((item) => (

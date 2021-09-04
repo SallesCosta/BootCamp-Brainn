@@ -1,14 +1,14 @@
 import Header from './components/header'
 import Menu from './components/menu'
-import Content from './components/content'
 import Footer from './components/footer'
+import Content from './components/content'
 
 function App() {
 
     return (<>
         <Header></Header>
          <Menu></Menu>
-        <Content></Content>
+         <Content />
         <Footer></Footer> 
     </>)
 }
