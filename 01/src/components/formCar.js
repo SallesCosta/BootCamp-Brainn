@@ -2,9 +2,9 @@ import { H2 } from "./titulos";
 
 
 export default function FormCar () {
-    return <> 
+    return <div className='d-flex card body'> 
     {/* <H2 text='testando'></H2> */}
-    <form>
+    <form >
         <div>
             <label>Imagem</label>
             <input/>
@@ -28,6 +28,22 @@ export default function FormCar () {
         <button className='primary'>Cadastrar</button>            
     </form>
 
+    <table border="1" >
+      <thead>
+        <tr>
+          <th>Imagem</th>
+          <th>Marca / Modelo</th>
+          <th>Ano</th>
+          <th>Placa</th>
+          <th>Cor</th>
+          <th></th>
+        </tr>
+      </thead>
 
-    </>
+      <tbody data-js="table">
+      </tbody>
+    </table>
+
+
+    </div>
 }

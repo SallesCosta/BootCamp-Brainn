@@ -129,4 +129,15 @@
     background-color: #fff;
     text-align: center;
     align-items: flex-start;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+  }
+
+.d-flex {
+    display: flex;
+}
+
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
