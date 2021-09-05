@@ -1,29 +1,30 @@
-// import { H2 } from "./titulos";
-//import { useState } from "react";
+import { H2 } from "./titulos";
+import { useState } from "react";
+import reactDom from "react-dom";
 
 export default function FormCar({ abc }) {
-    // const [imgValue, setImgValue] = useState('foto do carro') 
+    const [imgValue, setImgValue] = useState('')
     // console.log('imgValue: ', imgValue)
 
-    // const [modelValue, setModelValue] = useState('modelo novo') 
+    const [modelValue, setModelValue] = useState('')
     // console.log('modelValue: ', modelValue)
 
-    // const [anoValue, setAnoValue] = useState('2021')  //controlado
+    const [anoValue, setAnoValue] = useState('')  //controlado
     // console.log('anoValue: ', anoValue)
 
-    // const [placaValue, setPlacaValue] = useState('abc-9393') 
+    const [placaValue, setPlacaValue] = useState('')
     // console.log('placaValue: ', placaValue)
 
-    // const [corValue, setCorvalue] = useState('prata') 
+    const [corValue, setCorValue] = useState('')
     // console.log('corValue: ', corValue)
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(e.target.elements.img.value)
-        console.log(e.target.elements.model.value)
-        console.log(e.target.elements.ano.value)
-        console.log(e.target.elements.placa.value)
-        console.log(e.target.elements.cor.value)
+        setImgValue(e.target.elements.img.value)
+        setModelValue(e.target.elements.model.value)
+        setAnoValue(e.target.elements.ano.value)
+        setPlacaValue(e.target.elements.placa.value)
+        setCorValue(e.target.elements.cor.value)
     }
 
 
@@ -31,23 +32,23 @@ export default function FormCar({ abc }) {
         <form onSubmit={handleSubmit} >
             <div>
                 <label>Imagem</label>
-                <input type='text' name='img' value='foto do carro'/>
+                <input type='text' name='img' />
             </div>
             <div>
                 <label>Marca Modelo</label>
-                <input type='text' name='model' value='carroNOvo'/>
+                <input type='text' name='model' />
             </div>
             <div>
                 <label>Ano</label>
-                <input type='text' name='ano' value='2021'/>
+                <input type='text' name='ano' />
             </div>
             <div>
                 <label>Placa</label>
-                <input type='text' name='placa' value='abc-0000'/>
+                <input type='text' name='placa' />
             </div>
             <div>
                 <label>Cor</label>
-                <input type='text' name='cor' value='prata'/>
+                <input type='text' name='cor' />
             </div>
             <button type='submit' className='primary'>Cadastrar</button>
         </form>
@@ -63,9 +64,6 @@ export default function FormCar({ abc }) {
                     <th></th>
                 </tr>
             </thead>
-
-            <tbody data-js="table">
-            </tbody>
         </table>
 
 
