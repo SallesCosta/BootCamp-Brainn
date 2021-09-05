@@ -1,7 +1,7 @@
-// import { H2 } from "./titulos";
-//import { useState } from "react";
+import { H2 } from "./titulos";
+import { useState } from "react";
 
-export default function FormCar({ abc }) {
+export default function FormCar({abc}) {
     // const [imgValue, setImgValue] = useState('foto do carro') 
     // console.log('imgValue: ', imgValue)
 
@@ -19,11 +19,7 @@ export default function FormCar({ abc }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(e.target.elements.img.value)
-        console.log(e.target.elements.model.value)
-        console.log(e.target.elements.ano.value)
-        console.log(e.target.elements.placa.value)
-        console.log(e.target.elements.cor.value)
+        console.log(e.target.element.imgCampo.value)
     }
 
 
@@ -31,24 +27,24 @@ export default function FormCar({ abc }) {
         <form onSubmit={handleSubmit} >
             <div>
                 <label>Imagem</label>
-                <input type='text' name='img' value='foto do carro'/>
+                <input type='text' name='imgCampo' />
             </div>
-            <div>
+            {/* <div>
                 <label>Marca Modelo</label>
-                <input type='text' name='model' value='carroNOvo'/>
-            </div>
-            <div>
+                <input value={modelValue} name='model' />
+                </div>
+                <div>
                 <label>Ano</label>
-                <input type='text' name='ano' value='2021'/>
-            </div>
-            <div>
+                <input value={anoValue} name='ano' />
+                </div>
+                <div>
                 <label>Placa</label>
-                <input type='text' name='placa' value='abc-0000'/>
-            </div>
-            <div>
+                <input value={placaValue} name='placa' />
+                </div>
+                <div>
                 <label>Cor</label>
-                <input type='text' name='cor' value='prata'/>
-            </div>
+                <input value={corValue} name='cor' />
+            </div> */}
             <button type='submit' className='primary'>Cadastrar</button>
         </form>
 

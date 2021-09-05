@@ -13,7 +13,6 @@ function App() {
     </>)
 }
 
-
 export default App
 
 //uma observação. quando bolei meu layout.. eu pus o sidebar dentro do content...
