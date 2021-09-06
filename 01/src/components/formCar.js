@@ -31,24 +31,15 @@ export default function FormCar({ abc }) {
 
 
 
-    const url = 'http://localhost/3333'
-    fetch(url)
-        .then(result => result.json)
-        .then(result => console.log(result))
-
-
-
-
+    
     useEffect(() => {
-
+        
+        const url = 'http://localhost:3333'
         async function listarCadastrados() {
             const response = await fetch(url)
             const json = await response.json()
             console.log('lista de carros :', json)
         }
-        json.array.forEach(element => {
-
-        });
         listarCadastrados()
     })
 
