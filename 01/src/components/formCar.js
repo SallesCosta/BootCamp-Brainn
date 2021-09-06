@@ -1,43 +1,57 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
+//import {get, post, del} from './http'
 // import { H2 } from "./titulos";
-// import { json } from "body-parser";
+
 
 
 export default function FormCar({ abc }) {
 
-    const [imgValue, setImgValue] = useState('')
-    const [modelValue, setModelValue] = useState('')
-    const [anoValue, setAnoValue] = useState('')  //controlado
-    const [placaValue, setPlacaValue] = useState('')
-    const [corValue, setCorValue] = useState('')
+    const [image, setImgValue] = useState('')
+    const [brandModel, setModelValue] = useState('')
+    const [year, setAnoValue] = useState('')  //controlado
+    const [plate, setPlacaValue] = useState('')
+    const [color, setCorValue] = useState('')
 
 
-    console.log('imgValue: ', imgValue)
-    console.log('modelValue: ', modelValue)
-    console.log('anoValue: ', anoValue)
-    console.log('placaValue: ', placaValue)
-    console.log('corValue: ', corValue)
+    console.log('imgValue: ', image)
+    console.log('modelValue: ', brandModel)
+    console.log('anoValue: ', year)
+    console.log('placaValue: ', plate)
+    console.log('corValue: ', color)
 
 
 
     function handleSubmit(e) {
-        e.preventDefault()
-        setImgValue(e.target.elements.img.value)
-        setModelValue(e.target.elements.model.value)
-        setAnoValue(e.target.elements.ano.value)
-        setPlacaValue(e.target.elements.placa.value)
-        setCorValue(e.target.elements.cor.value)
+         e.preventDefault()
+        const elements = [
+            setImgValue(e.target.elements.img.value),
+            setModelValue(e.target.elements.model.value),
+            setAnoValue(e.target.elements.ano.value),
+            setPlacaValue(e.target.elements.placa.value),
+            setCorValue(e.target.elements.cor.value),
+        ];
+        console.log('elements: ',elements)
+        
+        const data = {
+            image,
+            brandModel,
+            year,
+            plate,
+            color,
+        }
+        console.log('data :', data)
     }
 
-
-
-    
     useEffect(() => {
-        
-        const url = 'http://localhost:3333'
+
+        const url = 'http://localhost:3333/cars'
         async function listarCadastrados() {
             const response = await fetch(url)
             const json = await response.json()
+
+            json.forEach(car => {
+                
+            });
             console.log('lista de carros :', json)
         }
         listarCadastrados()
