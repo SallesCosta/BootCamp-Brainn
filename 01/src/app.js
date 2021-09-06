@@ -3,7 +3,7 @@ import Menu from './components/menu'
 import Footer from './components/footer'
 import Content from './components/content'
 
-function App() {
+export default function App() {
 
     return (<>
         <Header></Header>
@@ -13,7 +13,6 @@ function App() {
     </>)
 }
 
-export default App
 
 //uma observação. quando bolei meu layout.. eu pus o sidebar dentro do content...
 //entao isso muda minhas configurações.. mas estou preservando a intenção do exercício

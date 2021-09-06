@@ -1,22 +1,24 @@
-import { H2 } from "./titulos";
-import { useState } from "react";
-import reactDom from "react-dom";
+import { useState, useEffect } from "react";
+// import { H2 } from "./titulos";
+// import { json } from "body-parser";
+
 
 export default function FormCar({ abc }) {
+
     const [imgValue, setImgValue] = useState('')
-    // console.log('imgValue: ', imgValue)
-
     const [modelValue, setModelValue] = useState('')
-    // console.log('modelValue: ', modelValue)
-
     const [anoValue, setAnoValue] = useState('')  //controlado
-    // console.log('anoValue: ', anoValue)
-
     const [placaValue, setPlacaValue] = useState('')
-    // console.log('placaValue: ', placaValue)
-
     const [corValue, setCorValue] = useState('')
-    // console.log('corValue: ', corValue)
+
+
+    console.log('imgValue: ', imgValue)
+    console.log('modelValue: ', modelValue)
+    console.log('anoValue: ', anoValue)
+    console.log('placaValue: ', placaValue)
+    console.log('corValue: ', corValue)
+
+
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -27,6 +29,28 @@ export default function FormCar({ abc }) {
         setCorValue(e.target.elements.cor.value)
     }
 
+
+
+    const url = 'http://localhost/3333'
+    fetch(url)
+        .then(result => result.json)
+        .then(result => console.log(result))
+
+
+
+
+    useEffect(() => {
+
+        async function listarCadastrados() {
+            const response = await fetch(url)
+            const json = await response.json()
+            console.log('lista de carros :', json)
+        }
+        json.array.forEach(element => {
+
+        });
+        listarCadastrados()
+    })
 
     return <div className='d-flex card body'>
         <form onSubmit={handleSubmit} >
@@ -65,7 +89,5 @@ export default function FormCar({ abc }) {
                 </tr>
             </thead>
         </table>
-
-
     </div>
 }
