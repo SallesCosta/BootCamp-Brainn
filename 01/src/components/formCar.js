@@ -1,99 +1,79 @@
-import { useState, useEffect } from "react"
-import { get, post, del } from './http'
-import CreateRow from "./row"
-// import { H2 } from "./titulos";
+import Table from "./table";
+import { useState, useEffect } from "react";
 
+function App() {
+  const [data, setData] = useState([]);
 
+  function getCarros() {
+    fetch("http://localhost:3333/cars")
+      .then((result) => result.json())
+      .then((result) => setData(result));
+  }
 
-export default function MyApp() {
+  useEffect(() => {
+    getCarros()
 
-    useEffect(() => {
-        const url = 'http://localhost:3333/cars'
-        async function listarCadastrados() {
-            const response = await fetch(url)
-            const json = await response.json()
-            if (json.length === 0) { return console.log('array vazio no db') }
-            console.log('lista de carros no db :', json)
-        }
-        listarCadastrados()
-    }, []);
+    return () => {
+    };
+  }, []);
 
-    return (<FormCar />)
-
-    function FormCar() {
-
-        const [image, setImgValue] = useState('')
-        const [brandModel, setModelValue] = useState('')
-        const [year, setAnoValue] = useState('')  //controlado
-        const [plate, setPlacaValue] = useState('')
-        const [color, setCorValue] = useState('')
-
-
-        function handleSubmit(e) {
-            e.preventDefault()
-            const elements = [
-                setImgValue(e.target.elements.img.value),
-                setModelValue(e.target.elements.model.value),
-                setAnoValue(e.target.elements.ano.value),
-                setPlacaValue(e.target.elements.placa.value),
-                setCorValue(e.target.elements.cor.value),
-            ];
-            //console.log('elements: ',elements)
-
-        }
-        const arrayDaEntrada = [
-            image,
-            brandModel,
-            year,
-            plate,
-            color,
-        ]
-
-
-        // post(data)
-        // console.log('data :', data)
-
-
-        return <div className='d-flex card body'>
-            <form onSubmit={handleSubmit} >
-                <div>
-                    <label>Imagem</label>
-                    <input type='text' name='img' placeholder='coloque uma foto'/>
-                </div>
-                <div>
-                    <label>Marca Modelo</label>
-                    <input type='text' name='model' placeholder='qual o modelo?'/>
-                </div>
-                <div>
-                    <label>Ano</label>
-                    <input type='text' name='ano' placeholder='de que ano?'/>
-                </div>
-                <div>
-                    <label>Placa</label>
-                    <input type='text' name='placa' placeholder='placa'/>
-                </div>
-                <div>
-                    <label>Cor</label>
-                    <input type='text' name='cor' placeholder='qual a cor?'/>
-                </div>
-                <button type='submit' className='primary'>Cadastrar</button>
-            </form>
-
-            <table border="1" >
-                <thead>
-                    <tr>
-                        <th>Imagem</th>
-                        <th>Marca / Modelo</th>1
-                        <th>Ano</th>
-                        <th>Placa</th>
-                        <th>Cor</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <CreateRow arrayDaEntrada={arrayDaEntrada} />
-                </tbody>
-            </table>
-        </div>
-    }
+  return (
+    <>
+      <Form data={data} getCarros={getCarros} />
+      <Table data={data} getCarros={getCarros} />
+    </>
+  );
 }
+
+function Form({ getCarros }) {
+  function handleForm(e) {
+    e.preventDefault();
+
+    const car = {
+      image: e.target.elements.imagem.value,
+      brandModel: e.target.elements.marca.value,
+      year: e.target.elements.ano.value,
+      plate: e.target.elements.placa.value,
+      color: e.target.elements.cor.value,
+    };
+
+    const requestOption = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(car),
+    };
+    fetch("http://localhost:3333/cars", requestOption)
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response)
+        getCarros()
+      })
+
+    
+  }
+
+  return (
+    <section >
+      <form onSubmit={handleForm}>
+        <label>Url da Imagem:</label>
+        <input type="text" name="imagem"></input>
+
+        <label>Marca</label>
+        <input type="text" name="marca"></input>
+
+        <label>Ano</label>
+        <input type="number" name="ano"></input>
+
+        <label>Placa</label>
+        <input type="text" name="placa"></input>
+
+        <label>Cor</label>
+        <input type="text" name="cor"></input>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  );
+}
+
+export default App;
