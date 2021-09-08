@@ -1,25 +1,14 @@
-import CreateRow from "./row";
+import CreateRow from "./row"
 import { del } from './http'
 
-function Table({ data, getCarros }) {
+function Lista({ data, cadastrados }) {
 
     function handleDelete(e) {
         e.preventDefault()
 
         const car = data.find((car) => car.plate === e.target.value)
-
         del('http://localhost:3333/cars', car)
-        // const requestOption = {
-        //     method: "DELETE",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(car),
-        // };
-        // fetch("http://localhost:3333/cars", requestOption)
-        //     .then((response) => response.json())
-        //     .then((response) => {
-        //         console.log(response)
-        //         getCarros()
-        //     })
+        cadastrados()
     }
 
     return (<div className='d-flex card body'>
@@ -29,11 +18,11 @@ function Table({ data, getCarros }) {
                 <tbody>
                     <tr>
                         <th>Carro</th>
-                        <th>Marca</th>
+                        <th>Model</th>
                         <th>Ano</th>
                         <th>Placa</th>
                         <th>Cor</th>
-                        <th>Deletar</th>
+                        <th>Excluir</th>
                     </tr>
                     <CreateRow data={data} deletar={handleDelete} />
                 </tbody>
@@ -44,4 +33,4 @@ function Table({ data, getCarros }) {
     )
 }
 
-export default Table;
+export default Lista;

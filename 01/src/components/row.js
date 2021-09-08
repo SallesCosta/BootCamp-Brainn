@@ -9,7 +9,7 @@ export default function CreateRow({ data, deletar }) {
                     <td>{item.year}</td>
                     <td>{item.plate}</td>
                     <td>{item.color}</td>
-                    <td><button onClick={deletar} value={item.plate}>Remover</button></td>
+                    <td><button onClick={deletar} value={item.plate}>Excluir</button></td>
                 </tr>
             ))}
     </>
