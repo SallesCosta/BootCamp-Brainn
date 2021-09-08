@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react"
-import Lista from "./table"
-import { post } from "./http"
+import { useState, useEffect } from 'react'
+import Lista from './table'
+import { post } from './http'
 
-const url = 'http://localhost:3333/cars'
+const url = 'http://localhost:3333/cars' 
+
 function App() {
     const [data, setData] = useState([]);
 
@@ -14,17 +15,12 @@ function App() {
 
     useEffect(() => {
         cadastrados()
-
-        return () => {
-        };
     }, [])
 
-    return (
-        <>
+    return <>
             <Form data={data} cadastrados={cadastrados} />
-            <Lista data={data} cadastrados={cadastrados} />
-        </>)
-  
+            <Lista data={data} cadastrados={cadastrados}/>
+        </>
 }
 
 function Form({ cadastrados }) {
@@ -44,26 +40,26 @@ function Form({ cadastrados }) {
     }
 
     return (
-        <section >
-            <form onSubmit={handleSubmit}>
-                <label>Url da Imagem:</label>
-                <input type="text" name="imagem"></input>
+        <div className='d-flex card body'>
+                <form onSubmit={handleSubmit}>
+                    <label>Url da Imagem:</label>
+                    <input type="text" name="imagem"></input>
 
-                <label>Marca</label>
-                <input type="text" name="marca"></input>
+                    <label>Marca</label>
+                    <input type="text" name="marca"></input>
 
-                <label>Ano</label>
-                <input type="number" name="ano"></input>
+                    <label>Ano</label>
+                    <input type="number" name="ano"></input>
 
-                <label>Placa</label>
-                <input type="text" name="placa"></input>
+                    <label>Placa</label>
+                    <input type="text" name="placa"></input>
 
-                <label>Cor</label>
-                <input type="text" name="cor"></input>
+                    <label>Cor</label>
+                    <input type="text" name="cor"></input>
 
-                <button type="submit">Cadastrar</button>
-            </form>
-        </section>
+                    <button type="submit">Cadastrar</button>
+                </form>
+        </div>
     )
 }
 

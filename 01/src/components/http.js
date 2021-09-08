@@ -1,9 +1,10 @@
+
 const request = (url, options) =>
   fetch(url, options)
     .then(r => r.json())
     .catch(e => ({ error: true, message: e.message }))
 
-//type Methods = 'POST' | 'DELETE'
+//type Methods = 'POST' | 'DELETE'  //tipagem pro typescript
 
 const createRequest = (method) => (url, data) => request(url, {
   method,

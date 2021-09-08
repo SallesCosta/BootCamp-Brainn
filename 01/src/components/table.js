@@ -1,18 +1,17 @@
-import CreateRow from "./row"
+import CreateRow from './row'
 import { del } from './http'
 
-function Lista({ data, cadastrados }) {
+const url = 'http://localhost:3333/cars' 
 
+function Lista({ data, cadastrados}) {
     function handleDelete(e) {
         e.preventDefault()
-
         const car = data.find((car) => car.plate === e.target.value)
-        del('http://localhost:3333/cars', car)
+        del(url, car)
         cadastrados()
     }
 
     return (<div className='d-flex card body'>
-
         <form >
             <table>
                 <tbody>
@@ -29,7 +28,6 @@ function Lista({ data, cadastrados }) {
             </table>
         </form>
     </div>
-
     )
 }
 
