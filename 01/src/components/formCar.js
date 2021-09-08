@@ -8,11 +8,11 @@ function App() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        async function cadastrados() {
-            const response = await fetch(url)
-            const json = await response.json()
-            setData([...json])
-        }
+        fetch(url)
+            .then(response => response.json())
+            .then((response) => {
+                setData([...response])
+            })
     }, [])
 
     return <>
@@ -21,7 +21,7 @@ function App() {
     </>
 }
 
-function Form({ setCars }) {
+function Form({ setData }) {
     function handleSubmit(e) {
         e.preventDefault()
 
@@ -45,25 +45,22 @@ function Form({ setCars }) {
         })
             .then(response => response.json())
             .then((response) => {
-                setCars((prevState) => {
+                if (response.error) {
+                    return console.log(response.error)
+                }
+                setData((prevState) => {
                     return [
                         ...prevState, {
                             image: car.image,
                             brandModel: car.brandModel,
-                            year: car.year,
+                            year: Number(car.year),
                             plate: car.plate,
                             color: car.color
                         }
                     ]
                 })
-
-                handleFormReset()
-                event.target.reset()
             })
-        // post(url, car)
-        // cadastrados()
     }
-
     return (
         <div className='d-flex card body'>
             <form onSubmit={handleSubmit}>
@@ -87,5 +84,6 @@ function Form({ setCars }) {
         </div>
     )
 }
+
 
 export default App;
