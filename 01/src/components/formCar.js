@@ -58,23 +58,23 @@ export default function MyApp() {
             <form onSubmit={handleSubmit} >
                 <div>
                     <label>Imagem</label>
-                    <input type='text' name='img' />
+                    <input type='text' name='img' placeholder='coloque uma foto'/>
                 </div>
                 <div>
                     <label>Marca Modelo</label>
-                    <input type='text' name='model' />
+                    <input type='text' name='model' placeholder='qual o modelo?'/>
                 </div>
                 <div>
                     <label>Ano</label>
-                    <input type='text' name='ano' />
+                    <input type='text' name='ano' placeholder='de que ano?'/>
                 </div>
                 <div>
                     <label>Placa</label>
-                    <input type='text' name='placa' />
+                    <input type='text' name='placa' placeholder='placa'/>
                 </div>
                 <div>
                     <label>Cor</label>
-                    <input type='text' name='cor' />
+                    <input type='text' name='cor' placeholder='qual a cor?'/>
                 </div>
                 <button type='submit' className='primary'>Cadastrar</button>
             </form>
