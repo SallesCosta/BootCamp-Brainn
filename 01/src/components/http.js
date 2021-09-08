@@ -3,7 +3,7 @@ const request = (url, options) =>
     .then(r => r.json())
     .catch(e => ({ error: true, message: e.message }))
 
-type Methods = 'POST' | 'DELETE'
+//type Methods = 'POST' | 'DELETE'
 
 const createRequest = (method) => (url, data) => request(url, {
   method,

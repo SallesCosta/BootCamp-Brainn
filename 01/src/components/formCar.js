@@ -1,10 +1,22 @@
 import { useState, useEffect } from "react"
-//import {get, post, del} from './http'
+import {get, post, del} from './http'
+import CreateRow from "./row"
 // import { H2 } from "./titulos";
 
 
 
-export default function FormCar({ abc }) {
+export default function FormCar({  }) {
+
+    useEffect(() => {
+        const url = 'http://localhost:3333/cars'
+        async function listarCadastrados() {
+            const response = await fetch(url)
+            const json = await response.json()
+            if (json.length === 0) { return console.log('array vazio') }
+            console.log('lista de carros :', json)
+        }
+        listarCadastrados()
+    })
 
     const [image, setImgValue] = useState('')
     const [brandModel, setModelValue] = useState('')
@@ -13,16 +25,8 @@ export default function FormCar({ abc }) {
     const [color, setCorValue] = useState('')
 
 
-    console.log('imgValue: ', image)
-    console.log('modelValue: ', brandModel)
-    console.log('anoValue: ', year)
-    console.log('placaValue: ', plate)
-    console.log('corValue: ', color)
-
-
-
     function handleSubmit(e) {
-         e.preventDefault()
+        e.preventDefault()
         const elements = [
             setImgValue(e.target.elements.img.value),
             setModelValue(e.target.elements.model.value),
@@ -30,7 +34,7 @@ export default function FormCar({ abc }) {
             setPlacaValue(e.target.elements.placa.value),
             setCorValue(e.target.elements.cor.value),
         ];
-        console.log('elements: ',elements)
+        //console.log('elements: ',elements)
         
         const data = {
             image,
@@ -39,23 +43,15 @@ export default function FormCar({ abc }) {
             plate,
             color,
         }
-        console.log('data :', data)
+        Array.from(data).forEach((e)=>{
+            return <>
+            <createRow umArray={e} />
+            </>
+        })
+       // post(data)
+       console.log('data :', data)
     }
 
-    useEffect(() => {
-
-        const url = 'http://localhost:3333/cars'
-        async function listarCadastrados() {
-            const response = await fetch(url)
-            const json = await response.json()
-
-            json.forEach(car => {
-                
-            });
-            console.log('lista de carros :', json)
-        }
-        listarCadastrados()
-    })
 
     return <div className='d-flex card body'>
         <form onSubmit={handleSubmit} >
@@ -93,6 +89,7 @@ export default function FormCar({ abc }) {
                     <th></th>
                 </tr>
             </thead>
+            <CreateRow umArray={data}/>
         </table>
     </div>
 }
