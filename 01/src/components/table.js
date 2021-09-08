@@ -1,4 +1,6 @@
 import CreateRow from "./row";
+import { del } from './http'
+
 function Table({ data, getCarros }) {
 
     function handleDelete(e) {
@@ -6,17 +8,18 @@ function Table({ data, getCarros }) {
 
         const car = data.find((car) => car.plate === e.target.value)
 
-        const requestOption = {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(car),
-        };
-        fetch("http://localhost:3333/cars", requestOption)
-            .then((response) => response.json())
-            .then((response) => {
-                console.log(response)
-                getCarros()
-            })
+        del('http://localhost:3333/cars', car)
+        // const requestOption = {
+        //     method: "DELETE",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify(car),
+        // };
+        // fetch("http://localhost:3333/cars", requestOption)
+        //     .then((response) => response.json())
+        //     .then((response) => {
+        //         console.log(response)
+        //         getCarros()
+        //     })
     }
 
     return (<div className='d-flex card body'>
