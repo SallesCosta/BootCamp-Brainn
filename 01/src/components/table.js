@@ -1,15 +1,34 @@
 import CreateRow from './row'
-import { del } from './http'
+// import { del } from './http'
 
 const url = 'http://localhost:3333/cars' 
 
-function Lista({ data, cadastrados}) {
-    function handleDelete(e) {
-        e.preventDefault()
-        const car = data.find((car) => car.plate === e.target.value)
-        del(url, car)
-        cadastrados()
-    }
+function Lista({ data, setData}) {
+
+    // function handleDelete(e) {
+    //     e.preventDefault()
+    //     const car = data.find((car) => car.plate === e.target.value)
+    //     del(url, car)
+    //     cadastrados()
+    // }
+
+    const handleDelete = (plate) => {
+        fetch (url, {
+          method: 'delete',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ plate })
+        })
+        .then(response => response.json())
+        .then(() => {
+          const findIndex = data.findIndex((car) => car.plate === plate)
+          if (findIndex !== -1) {
+            setData((prevState) => {
+              prevState.splice(findIndex, 1)
+              return [ ...prevState ]
+            })
+          }
+        })
+      }
 
     return (<div className='d-flex card body'>
         <form >

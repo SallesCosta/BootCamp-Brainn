@@ -2,28 +2,26 @@ import { useState, useEffect } from 'react'
 import Lista from './table'
 import { post } from './http'
 
-const url = 'http://localhost:3333/cars' 
+const url = 'http://localhost:3333/cars'
 
 function App() {
     const [data, setData] = useState([]);
 
-    async function cadastrados() {
-        const response = await fetch(url)
-        const json = await response.json()
-        setData(json)
-    }
-
     useEffect(() => {
-        cadastrados()
+        async function cadastrados() {
+            const response = await fetch(url)
+            const json = await response.json()
+            setData([...json])
+        }
     }, [])
 
     return <>
-            <Form data={data} cadastrados={cadastrados} />
-            <Lista data={data} cadastrados={cadastrados}/>
-        </>
+        <Form data={data} cadastrados={setData} />
+        <Lista data={data} cadastrados={setData} />
+    </>
 }
 
-function Form({ cadastrados }) {
+function Form({ setCars }) {
     function handleSubmit(e) {
         e.preventDefault()
 
@@ -34,31 +32,58 @@ function Form({ cadastrados }) {
             plate: e.target.elements.placa.value,
             color: e.target.elements.cor.value,
         }
+        fetch(url, {
+            method: 'post',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                image: car.image,
+                brandModel: car.brandModel,
+                year: car.year,
+                plate: car.plate,
+                color: car.color
+            })
+        })
+            .then(response => response.json())
+            .then((response) => {
+                setCars((prevState) => {
+                    return [
+                        ...prevState, {
+                            image: car.image,
+                            brandModel: car.brandModel,
+                            year: car.year,
+                            plate: car.plate,
+                            color: car.color
+                        }
+                    ]
+                })
 
-        post(url, car)
-        cadastrados()
+                handleFormReset()
+                event.target.reset()
+            })
+        // post(url, car)
+        // cadastrados()
     }
 
     return (
         <div className='d-flex card body'>
-                <form onSubmit={handleSubmit}>
-                    <label>Url da Imagem:</label>
-                    <input type="text" name="imagem"></input>
+            <form onSubmit={handleSubmit}>
+                <label>Url da Imagem:</label>
+                <input type="text" name="imagem"></input>
 
-                    <label>Marca</label>
-                    <input type="text" name="marca"></input>
+                <label>Marca</label>
+                <input type="text" name="marca"></input>
 
-                    <label>Ano</label>
-                    <input type="number" name="ano"></input>
+                <label>Ano</label>
+                <input type="number" name="ano"></input>
 
-                    <label>Placa</label>
-                    <input type="text" name="placa"></input>
+                <label>Placa</label>
+                <input type="text" name="placa"></input>
 
-                    <label>Cor</label>
-                    <input type="text" name="cor"></input>
+                <label>Cor</label>
+                <input type="text" name="cor"></input>
 
-                    <button type="submit">Cadastrar</button>
-                </form>
+                <button type="submit">Cadastrar</button>
+            </form>
         </div>
     )
 }
