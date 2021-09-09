@@ -5,7 +5,7 @@ import { post } from './http'
 const url = 'http://localhost:3333/cars'
 
 function App() {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState('');
 
     useEffect(() => {
         fetch(url)
@@ -33,26 +33,26 @@ function Form({ setData }) {
             color: e.target.elements.cor.value,
         }
         post(url, car)
-        .then((response) => {
-            if (response.error) {
-              return console.log('invalid Operation')
-              }
-              
-              function attState() {
-                  setData((e) => {
-                      return [
-                          ...e, {
-                              image: car.image,
-                              brandModel: car.brandModel,
-                              year: Number(car.year),
-                              plate: car.plate,
-                              color: car.color
+            .then((response) => {
+                if (response.error) {
+                    return console.log('invalid Operation')
+                }
+
+                function attState() {
+                    setData((e) => {
+                        return [
+                            ...e, {
+                                image: car.image,
+                                brandModel: car.brandModel,
+                                year: Number(car.year),
+                                plate: car.plate,
+                                color: car.color
                             }
                         ]
                     })
                 }
-            })     
-
+                attState()
+            })
         function resetar({ setData }) {
             return setData((e) => {
                 return [
@@ -66,7 +66,7 @@ function Form({ setData }) {
                 ]
             })
         }
-        // resetar()
+        //resetar()
     }
 
     return (

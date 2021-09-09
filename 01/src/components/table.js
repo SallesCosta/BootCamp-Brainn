@@ -9,13 +9,18 @@ function Lista({ data, setData }) {
     e.preventDefault()
     const car = data.findIndex((car) => car.plate === e.target.value)
     del(url, car)
-      .then(
-        function attState() {
+      .then((response) => {
+        if (response.error) {
+          return console.log('invalid Operation')
+        }
+        function attState() {  //essa function attState exclui o carro da lista no FRONT
           setData((x) => {
             x.splice(car, 1)
             return [...x]
           })
         }
+        attState()
+      }
       )
   }
 
