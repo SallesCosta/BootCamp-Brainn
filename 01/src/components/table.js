@@ -7,7 +7,7 @@ function Lista({ data, setData }) {
 
   function handleDelete(e) {
     e.preventDefault()
-    const car = data.find((car) => car.plate === e.target.value)
+    const car = data.findIndex((car) => car.plate === e.target.value)
     del(url, car)
       .then(
         function attState() {
@@ -15,7 +15,6 @@ function Lista({ data, setData }) {
             x.splice(car, 1)
             return [...x]
           })
-
         }
       )
   }

@@ -33,49 +33,64 @@ function Form({ setData }) {
             color: e.target.elements.cor.value,
         }
         post(url, car)
-        
-        function attState() {
-            setData((e) => {
+        .then((response) => {
+            if (response.error) {
+              return console.log('invalid Operation')
+              }
+              
+              function attState() {
+                  setData((e) => {
+                      return [
+                          ...e, {
+                              image: car.image,
+                              brandModel: car.brandModel,
+                              year: Number(car.year),
+                              plate: car.plate,
+                              color: car.color
+                            }
+                        ]
+                    })
+                }
+            })     
+
+        function resetar({ setData }) {
+            return setData((e) => {
                 return [
                     ...e, {
-                        image: car.image,
-                        brandModel: car.brandModel,
-                        year: Number(car.year),
-                        plate: car.plate,
-                        color: car.color
+                        image: '',
+                        brandModel: '',
+                        year: '',
+                        plate: '',
+                        color: '',
                     }
                 ]
             })
-        } 
-        attState()
-
-        // function resetar({setData}) {
-        //     return setData(e)
-        // }
+        }
+        // resetar()
     }
 
-        return (
-            <div className='d-flex card body'>
-                <form onSubmit={handleSubmit}>
-                    <label>Url da Imagem:</label>
-                    <input type="text" name="imagem"></input>
+    return (
+        <div className='d-flex card body'>
+            <form onSubmit={handleSubmit}>
+                <label>Url da Imagem:</label>
+                <input type="text" name="imagem"></input>
 
-                    <label>Marca</label>
-                    <input type="text" name="marca"></input>
+                <label>Marca</label>
+                <input type="text" name="marca"></input>
 
-                    <label>Ano</label>
-                    <input type="number" name="ano"></input>
+                <label>Ano</label>
+                <input type="number" name="ano"></input>
 
-                    <label>Placa</label>
-                    <input type="text" name="placa"></input>
+                <label>Placa</label>
+                <input type="text" name="placa"></input>
 
-                    <label>Cor</label>
-                    <input type="text" name="cor"></input>
+                <label>Cor</label>
+                <input type="text" name="cor"></input>
 
-                    <button type="submit">Cadastrar</button>
-                </form>
-            </div>
-        )
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    )
 }
 
 
