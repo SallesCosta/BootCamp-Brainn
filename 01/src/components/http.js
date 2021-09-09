@@ -4,8 +4,6 @@ const request = (url, options) =>
     .then(r => r.json())
     .catch(e => ({ error: true, message: e.message }))
 
-//type Methods = 'POST' | 'DELETE'  //tipagem pro typescript
-
 const createRequest = (method) => (url, data) => request(url, {
   method,
   headers: {

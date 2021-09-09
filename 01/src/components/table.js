@@ -5,10 +5,11 @@ const url = 'http://localhost:3333/cars'
 
 function Lista({ data, setData }) {
 
-  function handleDelete(e) {
+  function handleDelete(e, placa) {
     e.preventDefault()
     const car = data.findIndex((car) => car.plate === e.target.value)
-    del(url, car)
+
+    del(url, { plate: placa })
       .then((response) => {
         if (response.error) {
           return console.log('invalid Operation')
