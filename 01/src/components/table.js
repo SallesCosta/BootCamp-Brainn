@@ -23,6 +23,7 @@ function Lista({ data, setData }) {
         attState()
       }
       )
+      console.log('excluiu a placa: ', placa)
   }
 
   return (<div className='d-flex card body'>

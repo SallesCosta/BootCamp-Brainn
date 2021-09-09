@@ -1,4 +1,3 @@
-
 export default function CreateRow({ data, deletar }) {
 
     return <>
@@ -14,4 +13,3 @@ export default function CreateRow({ data, deletar }) {
             ))}
     </>
 }
-

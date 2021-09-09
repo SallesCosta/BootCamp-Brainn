@@ -13,6 +13,7 @@ function App() {
             .then((response) => {
                 setData([...response])
             })
+        console.log('console limpinho.. nadinha')
     }, [])
 
     return <>
@@ -35,7 +36,7 @@ function Form({ setData }) {
         post(url, car)
             .then((response) => {
                 if (response.error) {
-                    return console.log('invalid Operation')
+                    return console.log('invalid Operation - Placa já existente')
                 }
 
                 function attState() {
@@ -53,20 +54,7 @@ function Form({ setData }) {
                 }
                 attState()
             })
-        function resetar({ setData }) {
-            return setData((e) => {
-                return [
-                    ...e, {
-                        image: '',
-                        brandModel: '',
-                        year: '',
-                        plate: '',
-                        color: '',
-                    }
-                ]
-            })
-        }
-        //resetar()
+            console.log('cadastrou a placa: ',  car.plate)
     }
 
     return (
@@ -92,7 +80,5 @@ function Form({ setData }) {
         </div>
     )
 }
-
-
 
 export default App;
