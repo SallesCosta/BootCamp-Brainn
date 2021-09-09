@@ -1,4 +1,4 @@
-function Btn ({ kind, children }) {
+function Btn ({ kind, children}) {
     return <button className ={ kind }>{ children }</button>
 }
 

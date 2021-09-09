@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import Lista from './table'
+import Lista from './lista'
 import { post } from './http'
 
 const url = 'http://localhost:3333/cars'
 
-function App() {
+function FormCar() {
     const [data, setData] = useState('');
 
     useEffect(() => {
@@ -16,9 +16,11 @@ function App() {
         console.log('console limpinho.. nadinha')
     }, [])
 
-    return <>
+    return <><div className=''>
+
         <Form data={data} setData={setData} />
         <Lista data={data} setData={setData} />
+    </div>
     </>
 }
 
@@ -54,31 +56,36 @@ function Form({ setData }) {
                 }
                 attState()
             })
-            console.log('cadastrou a placa: ',  car.plate)
+        console.log('cadastrou a placa: ', car.plate)
     }
 
     return (
-        <div className='d-flex card body'>
+        <div className='card'>
             <form onSubmit={handleSubmit}>
                 <label>Url da Imagem:</label>
                 <input type="text" name="imagem"></input>
 
+                <br />
                 <label>Marca</label>
                 <input type="text" name="marca"></input>
 
+                <br />
                 <label>Ano</label>
                 <input type="number" name="ano"></input>
 
+                <br />
                 <label>Placa</label>
                 <input type="text" name="placa"></input>
 
+                <br />
                 <label>Cor</label>
                 <input type="text" name="cor"></input>
 
-                <button type="submit">Cadastrar</button>
+                <br />
+                <button type="submit" className='primary'>Cadastrar</button>
             </form>
         </div>
     )
 }
 
-export default App;
+export default FormCar;
