@@ -4,8 +4,8 @@ function BtnPrimary({ children }) {
     return <Btn1>{children}</Btn1>
 }
 
-function BtnSecondary({ children, onClick }) {
-    return <Btn2 onClick={onClick}>{children}</Btn2>
+function BtnSecondary({ children, onClick, item }) {
+    return <Btn2 item={item} onClick={onClick}>{children}</Btn2>
 }
 
 const Btn1 = styled.button`
