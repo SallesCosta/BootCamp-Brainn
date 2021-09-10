@@ -1,5 +1,6 @@
 import CreateRow from './row'
 import { del } from './http'
+//import styled from 'styled-components '
 
 const url = 'http://localhost:3333/cars'
 
@@ -45,5 +46,5 @@ function Lista({ data, setData }) {
   </div>
   )
 }
-
 export default Lista;
+

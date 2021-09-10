@@ -1,11 +1,11 @@
-import Btn from "./btn"
+import { BtnPrimary, BtnSecondary } from "./btn"
 
 function Sidebar({ lista, postar }) {
 
     return (
         <aside className='sidebar'>
-            <Btn kind='primary' children='primaryButton'></Btn>
-            <Btn kind='secondary' children='secondaryButton'></Btn>
+            <BtnPrimary children='primaryButton' />
+            <BtnSecondary children='secondaryButton' />
             <br />
             <ul>
                 {lista.map((item) => (

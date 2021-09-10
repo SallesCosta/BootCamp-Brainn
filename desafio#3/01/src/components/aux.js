@@ -27,4 +27,5 @@ function Art({ tit, cont }) {
     </>
 }
 
+
 export { Github_e, Github_b, Art }
