@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import {Lista, Wrapper} from './lista'
+import { Lista, Wrapper } from './lista'
 import { post } from './http'
 import { BtnPrimary } from './btn'
 import { Input } from './titulos'
+import styled from 'styled-components'
+//import Content from './content'
 
 const url = 'http://localhost:3333/cars'
 
@@ -18,13 +20,25 @@ function FormCar() {
         console.log('console limpinho.. nadinha')
     }, [])
 
-    return <><div className=''>
-
-        <Form data={data} setData={setData} />
-        <Lista data={data} setData={setData} />
-    </div>
+    return <>
+        <Ajuste>
+            <Form data={data} setData={setData} />
+            <Lista data={data} setData={setData} />
+        </Ajuste>
     </>
 }
+
+const Ajuste = styled.div`
+top: 7rem;
+left: 10%;
+width: 90%;
+bottom: 3rem;
+height: 100%-7rem;
+background-color: rgba(209, 213, 219, 1);
+text-align: center;
+position: absolute;
+`
+
 
 function Form({ setData }) {
     function handleSubmit(e) {
@@ -65,23 +79,23 @@ function Form({ setData }) {
         <Wrapper>
             <form onSubmit={handleSubmit}>
                 <label>Url da Imagem:</label>
-                <Input type='text' name='imagem' placeholder='selecione um link' required/>
+                <Input type='text' name='imagem' placeholder='selecione um link' required />
 
                 <br />
                 <label>Marca</label>
-                <Input type='text' name='marca' placeholder='marca da caranga' required/>
+                <Input type='text' name='marca' placeholder='marca da caranga' required />
 
                 <br />
                 <label>Ano</label>
-                <Input type='text' name='ano' placeholder='ano' required/>
+                <Input type='text' name='ano' placeholder='ano' required />
 
                 <br />
                 <label>Placa</label>
-                <Input type='text' name='placa' placeholder='Ex.: AAA-0000' required/>
+                <Input type='text' name='placa' placeholder='Ex.: AAA-0000' required />
 
                 <br />
                 <label>Cor</label>
-                <Input type='text' name='cor' placeholder='cor' required/>
+                <Input type='text' name='cor' placeholder='cor' required />
 
                 <br />
                 <BtnPrimary type="submit" children='Cadastrar' />
@@ -89,5 +103,6 @@ function Form({ setData }) {
         </Wrapper>
     )
 }
+
 
 export default FormCar;

@@ -9,11 +9,12 @@ const Wrapper = styled.div`
  margin-top: auto;
  margin-left: auto;
  margin-right: auto;
- max-width: 600px;
+ max-width: 400px;
  border: 3px solid #444;
  border-radius: 10px;
  background-color: #fff;
  text-align: center;
+ align-items: center;
 }
  `
 
