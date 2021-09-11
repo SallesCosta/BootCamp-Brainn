@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const url = 'http://localhost:3333/cars'
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
  display: flex;
  margin-top: auto;
  margin-left: auto;
@@ -51,5 +51,5 @@ function Lista({ data, setData }) {
   </Wrapper>
   )
 }
-export default Lista;
+export { Lista, Wrapper};
 
