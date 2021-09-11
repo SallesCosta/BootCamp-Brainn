@@ -1,4 +1,4 @@
-// import { BtnSecondary } from "./btn"
+import { BtnSecondary } from "./btn"
 export default function CreateRow({ data, deletar }) {
 
     return <>
@@ -9,8 +9,7 @@ export default function CreateRow({ data, deletar }) {
                     <td>{item.year}</td>
                     <td>{item.plate}</td>
                     <td>{item.color}</td>
-                    <td><button className='secondary' onClick={(event) => deletar(event, item.plate)} value={item.plate}>Excluir</button></td>
-                    {/* <td><BtnSecondary onClick={(event) => deletar(event, item.plate)} value={item.plate}>Excluir</BtnSecondary></td> */}
+                    <td><BtnSecondary onClick={(event) => deletar(event, item.plate)} value={item.plate}>Excluir</BtnSecondary></td>
                 </tr>
             ))}
     </>

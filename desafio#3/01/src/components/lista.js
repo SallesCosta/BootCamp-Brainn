@@ -1,33 +1,38 @@
 import CreateRow from './row'
 import { del } from './http'
-//import styled from 'styled-components '
+import styled from 'styled-components'
 
 const url = 'http://localhost:3333/cars'
+
+export const Wrapper = styled.div`
+ display: flex;
+ margin-top: auto;
+ margin-left: auto;
+ margin-right: auto;
+ max-width: 600px;
+ border: 3px solid #444;
+ border-radius: 10px;
+ background-color: #fff;
+ text-align: center;
+}
+ `
 
 function Lista({ data, setData }) {
 
   function handleDelete(e, placa) {
     e.preventDefault()
-    const car = data.findIndex((car) => car.plate === e.target.value)
-
     del(url, { plate: placa })
       .then((response) => {
         if (response.error) {
           return console.log('invalid Operation')
         }
-        function attState() {  //essa function attState exclui o carro da lista no FRONT
-          setData((x) => {
-            x.splice(car, 1)
-            return [...x]
-          })
-        }
-        attState()
+        setData((prevState) => prevState.filter((car) => car.plate !== placa))
       }
       )
-      console.log('excluiu a placa: ', placa)
+    console.log('excluiu a placa: ', placa)
   }
 
-  return (<div className='d-flex card body'>
+  return (<Wrapper>
     <form >
       <table>
         <tbody>
@@ -43,7 +48,7 @@ function Lista({ data, setData }) {
         </tbody>
       </table>
     </form>
-  </div>
+  </Wrapper>
   )
 }
 export default Lista;
