@@ -6,7 +6,7 @@ const url = 'http://localhost:3333/cars'
 
 const Wrapper = styled.div`
  display: flex;
- margin-top: auto;
+ margin-top: 1rem;
  margin-left: auto;
  margin-right: auto;
  max-width: 400px;

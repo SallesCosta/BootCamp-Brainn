@@ -8,18 +8,24 @@ const GlobalStyle = createGlobalStyle`
  body {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     margin: 0;
-     padding: 0;
+    padding: 0;
     box-sizing: border-box;
 }
  `
 
 export default function App() {
 
+    const generalBg = '#11101D'
+    const generalBg2 = '#11101D'
+    const generalBg3 = '#11101D'
+    const generalColor = '#fff'
+
+
     return (<>
         <GlobalStyle />
-        <Header text='' bgColor='' color=''/>
-        <Menu text='meu menu personalizado' bgColor='#13391D' color='#fff'></Menu>
-        <Content />
-        <Footer text='meu footer' bgColor='#11101D' color='#fff' />
+        <Header text='texto do header' bgColor={generalBg} color={generalColor}/>
+        <Menu text='meu menu personalizado' bgColor={generalBg2} color={generalColor}/>
+        <Content bgColor={generalBg2} color={generalColor}/>
+        <Footer text='meu footer' bgColor={generalBg} color={generalColor} />
     </>)
 }
