@@ -30,12 +30,9 @@ export default function App() {
         bg3: '#d4c5b2',
     }
 
-
-
     const [Bg1, setBg1] = useState(themeA.bg1)
     const [Bg2, setBg2] = useState(themeA.bg2)
     const [Bg3, setBg3] = useState(themeA.bg3)
-
 
     function changeThemeToA() {
         setBg1(themeA.bg1)

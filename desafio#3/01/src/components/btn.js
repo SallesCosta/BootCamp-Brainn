@@ -8,6 +8,9 @@ function BtnSecondary({ children, onClick }) {
   return <Btn2 onClick={onClick}>{children}</Btn2>
 }
 
+export { BtnPrimary, BtnSecondary }
+
+
 const Btn1 = styled.button`
 background-color: #2d3748;
 width: 160px;
@@ -35,6 +38,7 @@ const Btn2 = styled(Btn1)`
      margin: 0.5rem 1rem;
      :hover {
        color: #f56565;
-       background-color: #ffffff;`
+       background-color: #ffffff;
+      }
+      `
 
-export { BtnPrimary, BtnSecondary }

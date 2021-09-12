@@ -29,7 +29,7 @@ function FormCar() {
 }
 
 const Ajuste = styled.section`
-display: inline-block;
+display: table-row-group;
 top: 7rem;
 left: 10%;
 width: 90%;
