@@ -19,7 +19,7 @@ export default function App() {
     const color = '#fff'
 
     const themeA = {
-        bg1: '#11101D',
+        bg1: '#160e58',
         bg2: '#306D85',
         bg3: '#98cbdf',
     }

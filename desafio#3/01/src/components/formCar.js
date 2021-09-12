@@ -28,7 +28,8 @@ function FormCar() {
     </>
 }
 
-const Ajuste = styled.div`
+const Ajuste = styled.section`
+display: inline-block;
 top: 7rem;
 left: 10%;
 width: 90%;
@@ -73,7 +74,7 @@ function Form({ setData }) {
                 attState()
             })
         console.log('cadastrou a placa: ', car.plate)
-        
+
     }
 
     return (
