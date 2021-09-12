@@ -20,14 +20,14 @@ export default function App() {
 
     const themeA = {
         bg1: '#11101D',
-        bg2: '#D93A54',
-        bg3: '#306D85',
+        bg2: '#306D85',
+        bg3: '#98cbdf',
     }
 
     const themeB = {
-        bg1: '#f1ede3',
+        bg1: '#7a1828',
         bg2: '#D93A54',
-        bg3: '#11101D',
+        bg3: '#d4c5b2',
     }
 
 
