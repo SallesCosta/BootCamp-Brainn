@@ -6,8 +6,6 @@ function Header({ text, bgColor, color }) {
     </>
 }
 
-export default Header
-
 const HeaderInt = styled.header`
     width: 100%;
     height: 4rem;
@@ -15,4 +13,6 @@ const HeaderInt = styled.header`
     text-align: center;
     color: ${(props) => props.color};
     background: ${(props) => props.bgColor};
-`
+    `
+
+export default Header

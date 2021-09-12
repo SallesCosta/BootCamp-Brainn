@@ -3,6 +3,7 @@ import Menu from './components/menu'
 import Footer from './components/footer'
 import Content from './components/content'
 import { createGlobalStyle } from 'styled-components'
+import { useState } from 'react'
 
 const GlobalStyle = createGlobalStyle`
  body {
@@ -15,7 +16,9 @@ const GlobalStyle = createGlobalStyle`
 
 export default function App() {
 
-    const generalBg = '#11101D'
+    const [generalBg, setBg] = useState([])
+    const [generalColor, setColor] = useState([])
+    const generalBg1 = '#11101D'
     const generalBg2 = '#11101D'
     const generalBg3 = '#11101D'
     const generalColor = '#fff'

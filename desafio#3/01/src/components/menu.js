@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import HeaderInt from "./header"
+// import HeaderInt  from "./header"
 
 function Menu({ text, bgColor, color }) {
    return <>
@@ -9,29 +9,31 @@ function Menu({ text, bgColor, color }) {
 
 export default Menu
 
-const MenuInt = styled(HeaderInt)`
-    height: 3rem;
+
+const MenuInt = styled.nav`
     top: 4rem;
-`
+    height: 3rem;
+    
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    color: ${(props) => props.color};
+    background: ${(props) => props.bgColor};
+    `
 
-// const HeaderInt = styled.header`
- 
-//    height: 4rem;
 
-//     width: 100%;
-//     position: fixed;
-//     text-align: center;
-//     color: ${(props) => props.color};
-//     background: ${(props) => props.bgColor};
-// `
+// const MenuInt = styled(HeaderInt)`
+//         /* height: 3rem;
+//         top: 4rem; */
+   //  `
 
-// const MenuInt = styled.nav`
-//     top: 4rem;
-//     height: 3rem;
+   //  const HeaderInt = styled.header`
 
-//     width: 100%;
-//     position: fixed;
-//     text-align: center;
-//     color: ${(props) => props.color};
-//     background: ${(props) => props.bgColor};
-// `
+   //     height: 4rem;
+
+   //      width: 100%;
+   //      position: fixed;
+   //      text-align: center;
+   //      color: ${(props) => props.color};
+   //      background: ${(props) => props.bgColor};
+   //  `
