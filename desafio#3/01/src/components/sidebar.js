@@ -2,12 +2,12 @@ import styled from "styled-components"
 import { BtnPrimary, BtnSecondary } from "./btn"
 
 
-function Sidebar({ bgColor, color, onClick }) {
+function Sidebar({ bgColor, color, onClick1, onClick2 }) {
 
     return (
         <SidebarInt bgColor={bgColor} color={color}>
-            <BtnPrimary children='Tema A' onClick={onClick} />
-            <BtnSecondary children='Tema B' onClick={onClick} />
+            <BtnPrimary children='Tema A' onClick={onClick1} />
+            <BtnSecondary children='Tema B' onClick={onClick2} />
         </SidebarInt>
     )
 }
