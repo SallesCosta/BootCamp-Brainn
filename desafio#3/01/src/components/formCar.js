@@ -40,7 +40,6 @@ text-align: center;
 position: absolute;
 `
 
-
 function Form({ setData }) {
     function handleSubmit(e) {
         e.preventDefault()
@@ -74,7 +73,6 @@ function Form({ setData }) {
                 attState()
             })
         console.log('cadastrou a placa: ', car.plate)
-
     }
 
     return (
