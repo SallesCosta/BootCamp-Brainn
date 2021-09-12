@@ -6,8 +6,8 @@ function Sidebar({ bgColor, color }) {
 
     return (
         <SidebarInt bgColor={bgColor} color={color}>
-            <BtnPrimary children='primaryButton' />
-            <BtnSecondary children='secondaryButton' />
+            <BtnPrimary children='Tema A' />
+            <BtnSecondary children='Tema B' />
         </SidebarInt>
     )
 }

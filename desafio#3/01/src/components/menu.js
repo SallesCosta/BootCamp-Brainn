@@ -1,16 +1,16 @@
 import styled from "styled-components"
-// import HeaderInt  from "./header"
+
 
 function Menu({ text, bgColor, color }) {
    return <>
-      <MenuInt children={text} color={color} bgColor={bgColor} />
+      <MenuInternal children={text} color={color} bgColor={bgColor} />
    </>
 }
 
 export default Menu
 
 
-const MenuInt = styled.nav`
+const MenuInternal = styled.nav`
     top: 4rem;
     height: 3rem;
     

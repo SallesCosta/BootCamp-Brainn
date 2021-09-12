@@ -2,11 +2,11 @@ import styled from "styled-components"
 
 function Header({ text, bgColor, color }) {
     return <>
-        <HeaderInt children={text} bgColor={bgColor} color={color} />
+        <HeaderInternal children={text} bgColor={bgColor} color={color} />
     </>
 }
 
-const HeaderInt = styled.header`
+const HeaderInternal = styled.header`
     width: 100%;
     height: 4rem;
     position: fixed;
