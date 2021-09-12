@@ -13,6 +13,8 @@ import {createGlobalStyle} from 'styled-components'
 }
  `
 
+
+ 
 export default function App() {
 
     return (<>
@@ -20,6 +22,6 @@ export default function App() {
         <Header></Header>
          <Menu></Menu>
          <Content />
-        <Footer></Footer> 
+        <Footer text='meu footer' bgColor='#11101D'></Footer> 
     </>)
 }

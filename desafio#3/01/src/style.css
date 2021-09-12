@@ -32,26 +32,4 @@
     background: #169741d7;
 }
 
-/* .content {
-    top: 7rem;
-    left: 10%;
-    width: 90%;
-    bottom: 3rem;
-    height: 100%-7rem;
-    background-color: rgba(209, 213, 219, 1);
-    text-align: center;
-    position: absolute;
-} */
-
-.footer {
-    color: #fff;
-    width: 100%;
-    height: 3rem;
-    display: flex;
-    justify-content: space-between;
-    background: #11101D;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-}
 

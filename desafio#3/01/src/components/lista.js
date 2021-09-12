@@ -15,8 +15,7 @@ const Wrapper = styled.div`
  background-color: #fff;
  text-align: center;
  align-items: center;
-}
- `
+}`
 
 function Lista({ data, setData }) {
 

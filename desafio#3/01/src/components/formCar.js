@@ -1,10 +1,10 @@
+import { H3 } from './titulos'
 import { useState, useEffect } from 'react'
 import { Lista, Wrapper } from './lista'
 import { post } from './http'
 import { BtnPrimary } from './btn'
 import { Input } from './titulos'
 import styled from 'styled-components'
-//import Content from './content'
 
 const url = 'http://localhost:3333/cars'
 
@@ -73,30 +73,41 @@ function Form({ setData }) {
                 attState()
             })
         console.log('cadastrou a placa: ', car.plate)
+        
     }
 
     return (
         <Wrapper>
             <form onSubmit={handleSubmit}>
-                <label>Url da Imagem:</label>
+                <H3 text='Cadastro de carros' />
+                <label>Imagem</label>
                 <Input type='text' name='imagem' placeholder='selecione um link' required />
 
                 <br />
+                <br />
                 <label>Marca</label>
+                <br />
                 <Input type='text' name='marca' placeholder='marca da caranga' required />
 
                 <br />
+                <br />
                 <label>Ano</label>
+                <br />
                 <Input type='text' name='ano' placeholder='ano' required />
 
                 <br />
+                <br />
                 <label>Placa</label>
+                <br />
                 <Input type='text' name='placa' placeholder='Ex.: AAA-0000' required />
 
                 <br />
+                <br />
                 <label>Cor</label>
+                <br />
                 <Input type='text' name='cor' placeholder='cor' required />
 
+                <br />
                 <br />
                 <BtnPrimary type="submit" children='Cadastrar' />
             </form>
