@@ -1,13 +1,25 @@
+import styled from "styled-components"
 import { BtnPrimary, BtnSecondary } from "./btn"
 
-function Sidebar() {
+
+function Sidebar({ bgColor, color }) {
 
     return (
-        <aside className='sidebar'>
+        <SidebarInt bgColor={bgColor} color={color}>
             <BtnPrimary children='primaryButton' />
-            <BtnSecondary children='secondaryButton' />       
-        </aside >
+            <BtnSecondary children='secondaryButton' />
+        </SidebarInt>
     )
 }
-
 export default Sidebar
+
+const SidebarInt = styled.aside`
+    position: fixed;
+    left: 0;
+    bottom: 3rem;
+    top: 7rem;
+    height: 100%-7rem;
+    width: 10%;
+    color: ${(props)=> props.color} ;
+    background: ${(props) => props.bgColor}
+`

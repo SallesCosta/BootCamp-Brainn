@@ -5,9 +5,7 @@ import FormCar from './formCar'
 export default function Content() {
 
     return <>
-        <Sidebar />
-        <section className='content'>
-            <FormCar />
-        </section>
+        <Sidebar bgColor='#169741d7' color='seashell' />
+        <FormCar />
     </>
 }
