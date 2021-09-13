@@ -44,6 +44,11 @@ function Lista({ data, setData }) {
             <th>Cor</th>
             <th>Excluir</th>
           </tr>
+          {data.length === 0 && (
+            <tr>
+              <td colSpan="6">Nenhum carro cadastrado.</td>
+            </tr>
+          )}
           <CreateRow data={data} deletar={handleDelete} />
         </tbody>
       </table>
@@ -51,5 +56,5 @@ function Lista({ data, setData }) {
   </Wrapper>
   )
 }
-export { Lista, Wrapper};
+export { Lista, Wrapper };
 
