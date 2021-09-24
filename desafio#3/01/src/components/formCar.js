@@ -10,6 +10,7 @@ const url = 'http://localhost:3333/cars'
 
 function FormCar() {
     const [data, setData] = useState([]);
+    
 
     useEffect(() => {
         fetch(url)
