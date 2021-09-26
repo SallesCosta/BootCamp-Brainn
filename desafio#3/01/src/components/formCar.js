@@ -6,9 +6,9 @@ import { BtnPrimary } from './btn'
 import { Input } from './titulos'
 import styled from 'styled-components'
 
-const url = 'http://localhost:3333/cars'
+const url = 'http://localhost:3333/lista'
 
-function FormCar() {
+function Form() {
     const [data, setData] = useState([]);
     
 
@@ -20,6 +20,10 @@ function FormCar() {
             })
         console.log('console limpinho.. nadinha')
     }, [])
+
+    useEffect(()=> {
+        
+    },[])
 
     return <>
         <Ajuste>
