@@ -5,4 +5,4 @@
 - [Desafio 07](https://github.com/SallesCosta/Markee-App/pull/3)
 - [Desafio 08](https://github.com/SallesCosta/Markee-App/pull/4)
 - [Desafio 09](https://github.com/SallesCosta/Markee-App/pull/5)
-- [Desafio 10]()
+- [Desafio 10](https://github.com/SallesCosta/Markee-App/pull/6)
